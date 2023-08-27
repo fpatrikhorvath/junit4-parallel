@@ -13,6 +13,7 @@ public class Hooks {
     static ThreadLocal<RestAssuredExtension> restAssuredExtensionThreadLocal = new ThreadLocal<>();
     static ThreadLocal<Response> responseThreadLocal = new ThreadLocal<>();
     static ThreadLocal<WebDriver> driverThreadLocal = new ThreadLocal<>();
+    static ThreadLocal<String> uiBaseUriThreadLocal = new ThreadLocal<>();//Selenium does not offer any way to change the base url
     static ThreadLocal<LoginPage> loginPageThreadLocal = new ThreadLocal<>();
     static ThreadLocal<InventoryPage> inventoryPageThreadLocal = new ThreadLocal<>();
 
@@ -24,6 +25,7 @@ public class Hooks {
     @Before("@UI")
     public void setUpUi(){
         WebDriverExtension webDriverExtension = new WebDriverExtension();
+        uiBaseUriThreadLocal.set("");
         driverThreadLocal = webDriverExtension.getDriverThreadLocal();
         loginPageThreadLocal.set(new LoginPage(driverThreadLocal));
         inventoryPageThreadLocal.set(new InventoryPage(driverThreadLocal));

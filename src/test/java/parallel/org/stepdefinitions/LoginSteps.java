@@ -10,11 +10,6 @@ import static org.junit.Assert.assertTrue;
 import static parallel.org.stepdefinitions.Hooks.*;
 
 public class LoginSteps {
-    @Given("the user opens the {string} url")
-    public void the_user_is_on_the_page(String url) {
-        driverThreadLocal.get().navigate().to(Utils.BASE_URI +url);
-    }
-
     @And("the user types in the {string} to the username field")
     public void theUserTypesInTheToTheUsername(String username) {
         loginPageThreadLocal.get().enterTextToElement("username", username);
