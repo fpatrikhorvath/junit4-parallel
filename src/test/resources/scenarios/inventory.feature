@@ -1,7 +1,7 @@
 @UI @smoke
 Feature:TODO
   Background:
-    Given the user opens the "https://www.saucedemo.com/" url
+    Given the user opens the "/" url
 
 
   Scenario:TODO
