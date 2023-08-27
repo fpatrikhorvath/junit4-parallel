@@ -37,7 +37,7 @@ public class LoginSteps {
      *
      * @param button The name of the button to be pressed.
      */
-    @When("the user presses the {string} button (on the login page)")
+    @When("the user presses the {string} button \\(on the login page)")
     public void theUserPressesTheButtonOnTheLoginPage(String button) {
         loginPageThreadLocal.get().clickOnElement(button);
     }
