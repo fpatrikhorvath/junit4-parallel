@@ -11,13 +11,4 @@ import static parallel.org.stepdefinitions.Hooks.inventoryPageThreadLocal;
  */
 public class InventorySteps {
 
-    /**
-     * Given step: Verifies that the user is navigated to the inventory page.
-     */
-    @Given("the user is navigated to the inventory page")
-    public void the_user_is_navigated_to_the_inventory_page() {
-        String message = "The user is not navigated to the inventory page";
-        boolean initState = inventoryPageThreadLocal.get().isInitialized();
-        assertTrue(message, initState);
-    }
 }

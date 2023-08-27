@@ -33,4 +33,18 @@ public class InventoryPage extends BasePage {
     public boolean isInitialized() {
         return isElementVisible(inventoryContainer);
     }
+    /**
+     * Clicks on the specified element on the Login page.
+     *
+     * @param element The element to click on (e.g. button).
+     */
+    public void clickOnElement(String element) {
+        switch (element) {
+            //case "login":
+            //    clickOnElement(loginButton);
+            //    break;
+            default:
+                throw new IllegalArgumentException("Element to click does not exists!");
+        }
+    }
 }

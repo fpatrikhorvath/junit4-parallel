@@ -11,6 +11,6 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/scenarios",
         plugin = {"pretty", "html:target/cucumber-report.html"},
-        glue = "parallel/org/stepdefinitions"
+        glue = "parallel.org.stepdefinitions"
 )
 public class TestRunner {}
