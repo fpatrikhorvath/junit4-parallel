@@ -40,9 +40,6 @@ public class InventoryPage extends BasePage {
      */
     public void clickOnElement(String element) {
         switch (element) {
-            //case "login":
-            //    clickOnElement(loginButton);
-            //    break;
             default:
                 throw new IllegalArgumentException("Element to click does not exists!");
         }

@@ -1,10 +1,11 @@
 @UI @smoke
-Feature:TODO
+Feature: Example UI scenario
+  Expected to fail
 
-  Background:TODO
+  Background:Sets the base url
     Given the user sets the base url to "https://www.saucedemo.com"
 
-  Scenario:TODO
+  Scenario:Tries to log in
     Given the user opens the "/" url
     And the user types in the "standard_user" to the "username" field on the "login" page
     And the user types in the "incorrect-password" to the "password" field on the "login" page
