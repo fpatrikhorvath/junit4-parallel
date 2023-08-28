@@ -32,6 +32,7 @@ public class LoginPage extends BasePage {
      */
     @Override
     public boolean isInitialized() {
+        logger.info("Checking the visibility state of the login page.");
         return isElementVisible(loginButton);
     }
 
@@ -41,6 +42,7 @@ public class LoginPage extends BasePage {
      * @param element The element to click on (e.g. button).
      */
     public void clickOnElement(String element) {
+        logger.info("Performing a click on the " + element + " element.");
         switch (element) {
             case "login":
                 clickOnElement(loginButton);
@@ -57,6 +59,7 @@ public class LoginPage extends BasePage {
      * @param text    The text to enter into the element.
      */
     public void enterTextToElement(String element, String text) {
+        logger.info("Enter the following " + text + " text to the " + element + " element.");
         switch (element) {
             case "username":
                 enterTextToElement(usernameInputField, text);

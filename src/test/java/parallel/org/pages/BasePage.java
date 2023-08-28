@@ -3,8 +3,10 @@ package parallel.org.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 public abstract class BasePage {
+    protected static final Logger logger = LogManager.getLogger(BasePage.class);
 
     /**
      * The {@code ThreadLocal} instance of the WebDriver associated with this page.
@@ -17,6 +19,7 @@ public abstract class BasePage {
      * @param driver The {@code ThreadLocal<WebDriver>} instance representing the WebDriver.
      */
     public BasePage(ThreadLocal<WebDriver> driver) {
+        logger.info("Initializing the driver and the page factory");
         this.driver = driver;
         PageFactory.initElements(driver.get(), this);
     }
