@@ -14,7 +14,7 @@ public class InventoryPage extends BasePage {
      *
      * @param driver The WebDriver instance associated with the current thread.
      */
-    public InventoryPage(ThreadLocal<WebDriver> driver) {
+    public InventoryPage(WebDriver driver) {
         super(driver);
     }
 

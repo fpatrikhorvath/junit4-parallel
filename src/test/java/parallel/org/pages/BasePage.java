@@ -11,17 +11,17 @@ public abstract class BasePage {
     /**
      * The {@code ThreadLocal} instance of the WebDriver associated with this page.
      */
-    protected ThreadLocal<WebDriver> driver;
+    protected WebDriver driver;
 
     /**
      * Schema for the children objects for the provided WebDriver instance.
      *
      * @param driver The {@code ThreadLocal<WebDriver>} instance representing the WebDriver.
      */
-    public BasePage(ThreadLocal<WebDriver> driver) {
+    public BasePage(WebDriver driver) {
         logger.info("Initializing the driver and the page factory");
         this.driver = driver;
-        PageFactory.initElements(driver.get(), this);
+        PageFactory.initElements(driver, this);
     }
 
     /**

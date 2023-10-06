@@ -14,7 +14,7 @@ public class LoginPage extends BasePage {
      *
      * @param driver The WebDriver instance associated with the current thread.
      */
-    public LoginPage(ThreadLocal<WebDriver> driver) {
+    public LoginPage(WebDriver driver) {
         super(driver);
     }
 

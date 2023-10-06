@@ -12,15 +12,22 @@
         <rest-assured.version>5.0.0</rest-assured.version>
         <cucumber.version>7.13.0</cucumber.version>
         <selenium.version>3.141.0</selenium.version>
-        <junit.version>7.13.0</junit.version>
+        <testng.version>7.0.0</testng.version>
         <log4j.version>2.17.1</log4j.version>
 
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
+        <maven.compiler.source>14</maven.compiler.source>
+        <maven.compiler.target>14</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>${cucumber.version}</version> <!-- Use the appropriate version -->
+            <scope>test</scope>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -29,6 +36,11 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.2</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -47,8 +59,8 @@
         <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
         <dependency>
             <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${junit.version}</version>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
             <scope>test</scope>
         </dependency>
 
@@ -72,14 +84,12 @@
             <version>${log4j.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M5</version>
-            </plugin>
-        </plugins>
-    </build>
 </project>

@@ -4,24 +4,20 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertTrue;
-import static parallel.org.stepdefinitions.Hooks.*;
+
+import static org.testng.AssertJUnit.assertTrue;
 
 /**
  * This class provides step definitions for common UI-related actions that serve as building blocks
  * for Cucumber scenarios.
  */
-public class BaseUiSteps {
+public class BaseUiSteps extends BaseUtil {
+    BaseUtil base;
 
-    /**
-     * Given step: Opens the specified URL using the WebDriver instance associated with the current thread.
-     *
-     * @param url The relative URL to navigate to.
-     */
-    @Given("the user opens the {string} url")
-    public void the_user_opens_the_url(String url) {
-        driverThreadLocal.get().navigate().to(uiBaseUriThreadLocal.get() + url);
+    public BaseUiSteps(BaseUtil base) {
+        this.base = base;
     }
+
 
     /**
      * Given step: Sets the base URL to be used for constructing URLs in subsequent steps.
@@ -30,7 +26,7 @@ public class BaseUiSteps {
      */
     @Given("the user sets the base url to {string}")
     public void theUserSetsTheBasePathTo(String baseUrl) {
-        uiBaseUriThreadLocal.set(baseUrl);
+        base.baseUrl = baseUrl;
     }
 
     /**
@@ -42,10 +38,10 @@ public class BaseUiSteps {
     public void theUserPressesTheButtonOnTheLoginPage(String button, String page) {
         switch (page) {
             case "login":
-                loginPageThreadLocal.get().clickOnElement(button);
+                base.loginPage.clickOnElement(button);
                 break;
             case "inventory":
-                inventoryPageThreadLocal.get().clickOnElement(button);
+                base.inventoryPage.clickOnElement(button);
                 break;
             default:
                 throw new IllegalArgumentException(page + " is not exists or not implemented yet!");
@@ -64,11 +60,11 @@ public class BaseUiSteps {
         switch (page) {
             case "login":
                 message = "The user is not on the login page";
-                initState = loginPageThreadLocal.get().isInitialized();
+                initState = base.loginPage.isInitialized();
                 break;
             case "inventory":
                 message = "The user is not on the inventory page";
-                initState = inventoryPageThreadLocal.get().isInitialized();
+                initState = base.inventoryPage.isInitialized();
                 break;
             default:
                 throw new IllegalArgumentException(page + " is not exists or not implemented yet!");
@@ -87,10 +83,11 @@ public class BaseUiSteps {
     public void theUserTypesInTheToTheUsername(String text, String input, String page) {
         switch (page) {
             case "login":
-                loginPageThreadLocal.get().enterTextToElement(input, text);
+                base.loginPage.enterTextToElement(input, text);
                 break;
             default:
                 throw new IllegalArgumentException(page + " is not exists or not implemented yet!");
         }
     }
+
 }
